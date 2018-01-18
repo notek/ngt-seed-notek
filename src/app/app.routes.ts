@@ -14,7 +14,7 @@ export const ROUTES: Routes = [
         path: 'settings',
         loadChildren: './views/settings/settings.module#SettingsModule'
     },
-    // 不匹配任何路由,重定向到首页
+    // does not match any route, redirect to 404.
     {   
         path: '**', 
         loadChildren: './components/notfound/404.module#NotfoundModule' 

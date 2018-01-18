@@ -7,7 +7,7 @@ import { routeAnimation } from './app.animations';
     selector: 'notek',
     template: `
         <notek-header></notek-header>
-        
+
         <main [@routeSwitchAnimation]="routerStateCode">
             <router-outlet></router-outlet>
         </main>
@@ -22,7 +22,7 @@ export class AppComponent {
     constructor(private router: Router){
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-                // 每次路由跳转改变状态
+                // each route jump changes state.
                 this.routerState = !this.routerState;
                 this.routerStateCode = this.routerState ? 'active' : 'inactive';
             }
