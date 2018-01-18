@@ -12,9 +12,10 @@ export const routeAnimation: AnimationEntryMetadata =
                 style({ transform: 'translateX(100px) rotateY(45deg)' }),
                 animate('.3s ease-in-out', style({ transform: 'translateX(0) rotateY(0)', opacity: 1 }))
             ], { optional: true }),
+
             query(':leave', [
                 style({ transform: 'translateX(0)' }),
-                animate('.3s ease-in-out', style({ transform: 'translateX(-100px)', opacity: 0 }
+                animate('.3s ease-in-out', style({ transform: 'translateX(-100px)', opacity: 0 }))
             ], { optional: true })
         ])
     ])
