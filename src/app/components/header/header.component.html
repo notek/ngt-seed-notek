@@ -1,0 +1,5 @@
+<header>
+    <nav>
+        <a *ngFor="let menu of MenuMaps" [routerLink]="menu.url" routerLinkActive="active-menu">{{menu.name}}</a>
+    </nav>
+</header>

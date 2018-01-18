@@ -1,0 +1,8 @@
+<div class="age">
+    <label for="age">设置年龄:</label>
+    <select id="age" (change)="setAge($event)">
+        <option *ngFor="let age of ageSetMaps" [value]="age">{{age}}</option>
+    </select>
+
+    <p>您设置了：{{age}}</p>
+</div>

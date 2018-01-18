@@ -1,0 +1,23 @@
+header {
+    height: 75px;
+    line-height: 75px;
+    background-color: #23262e;
+}
+
+header nav {
+    padding: 0 2rem;
+}
+header nav a {
+    top: -2px;
+    color: #fff;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    position: relative;
+    display: inline-block;
+}
+header nav a:hover,
+header nav a.active-menu {
+    color: #999;
+    border-bottom: 2px solid #f90;
+    background-color: rgba(0, 0, 0, .85);
+}

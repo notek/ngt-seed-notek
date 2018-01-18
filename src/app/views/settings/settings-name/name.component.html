@@ -1,0 +1,6 @@
+<div class="name">
+    <label for="name">新的名字:</label>
+    <input type="text" id="name" [(ngModel)]="uname" (input)="getUname()" />
+    <button (click)="confirmChangesUname()">确定</button>
+    <p *ngIf="display">你修改的名字为：{{uname}}</p>
+</div>

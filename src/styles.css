@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+}
+
+body, 
+html {
+    font-size: 14px;
+    min-height: 100%;
+    color: #555!important;
+    text-rendering: geometricPrecision;
+    font-family: Helvetica Neue,Helvetica,Tahoma,lantinghei sc,Hiragino Sans GB,Microsoft YaHei,sans-serif!important;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    transition: all .3s;
+}
