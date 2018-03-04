@@ -1,0 +1,14 @@
+<div class="notek-dialog" #dialogBox>
+    <div class="notek-dialog-box" *ngIf="animState" [@dialog] (@dialog.done)="animEnd($event)" [ngStyle]="{'width.px': width}">
+        <div class="notek-dialog-header">
+            <h4>{{title}}</h4>
+        </div>
+
+        <div class="notek-dialog-content" [innerHTML]="content" [ngStyle]="{'height.px': contentHeight}"></div>
+
+        <div class="notek-dialog-footer">
+            <button class="notek-btn notek-btn-primary">确定</button>
+            <button class="notek-btn notek-btn-peril" (click)="close()">取消</button>
+        </div>
+    </div>
+</div>

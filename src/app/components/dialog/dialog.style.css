@@ -1,0 +1,46 @@
+.notek-dialog {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.notek-dialog-box {
+    width: 600px;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.notek-dialog-header {
+    line-height: 50px;
+    background-color: #eee;
+}
+.notek-dialog-header h4 {
+    color: #555;
+    font-size: 1.25rem;
+    font-weight: normal;
+    padding: 0 1.125rem;
+}
+
+.notek-dialog-content {
+    padding: 1rem;
+    /*min-height: 150px;*/
+}
+
+.notek-dialog-footer {
+    font-size: 0;
+    padding: 1.125rem;
+    text-align: right;
+    border-top: 1px solid #eee;
+}
+.notek-dialog-footer button:first-child {
+    margin-right: 10px;
+}

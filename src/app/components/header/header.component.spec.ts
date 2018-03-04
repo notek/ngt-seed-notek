@@ -23,11 +23,11 @@ describe('HeaderComponent', () => {
         expect(menus.length).toEqual(2);
 
         // 第一个是 首页.
-        expect(menus[0].name).toEqual('首页');
-        expect(menus[0].url).toEqual('/home');
+        expect(menus[0].name).toEqual('今日账单');
+        expect(menus[0].url).toEqual('/today-bills');
 
         // 第二个是 设置.
-        expect(menus[1].name).toEqual('设置');
-        expect(menus[1].url).toEqual('/settings');
+        expect(menus[1].name).toEqual('历史账单');
+        expect(menus[1].url).toEqual('/history-bills');
     }));
 });

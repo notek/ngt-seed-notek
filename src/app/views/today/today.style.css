@@ -1,0 +1,11 @@
+.today-bills {
+}
+
+.bills-box {
+    width: 75%;
+    margin: 5rem auto 0;
+}
+
+.bills-box li {
+    line-height: 2;
+}

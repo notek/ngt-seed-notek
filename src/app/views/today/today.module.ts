@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home.component';
+import { TodayBillsComponent } from './today.component';
 
 export const ROUTES: Routes = [
     { 
         path: '', 
-        component: HomeComponent
+        component: TodayBillsComponent
     }
 ];
 
@@ -16,8 +16,8 @@ export const ROUTES: Routes = [
         CommonModule,
         RouterModule.forChild(ROUTES)
     ],
-    declarations: [HomeComponent], 
-    bootstrap: [HomeComponent] 
+    declarations: [TodayBillsComponent], 
+    bootstrap: [TodayBillsComponent] 
 })
 
-export class HomeModule {};
+export class TodayBillsModule {};

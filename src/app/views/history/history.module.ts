@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SettingsComponent } from './settings.component';
+import { HistoryBillsComponent } from './history.component';
 
 export const ROUTES: Routes = [
     { 
         path: '', 
-        component: SettingsComponent,
+        component: HistoryBillsComponent,
         children: [
             {
                 path: 'name',
@@ -27,9 +27,9 @@ export const ROUTES: Routes = [
         RouterModule.forChild(ROUTES)
     ],
     declarations: [
-        SettingsComponent
+        HistoryBillsComponent
     ], 
-    bootstrap: [SettingsComponent] 
+    bootstrap: [HistoryBillsComponent] 
 })
 
-export class SettingsModule {};
+export class HistoryBillsModule {};

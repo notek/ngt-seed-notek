@@ -19,7 +19,7 @@ export class AppComponent {
     private routerState: boolean = true;
     private routerStateCode: string = 'active';
 
-    constructor(private router: Router){
+    constructor(private router: Router) {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 // each route jump changes state.
@@ -28,4 +28,5 @@ export class AppComponent {
             }
         });
     }
+
 };

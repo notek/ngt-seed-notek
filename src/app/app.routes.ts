@@ -4,19 +4,23 @@ export const ROUTES: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: 'today-bills'
     },
     {
-        path: 'home',
-        loadChildren: './views/home/home.module#HomeModule'
+        path: 'today-bills',
+        loadChildren: './views/today/today.module#TodayBillsModule'
     },
     {
-        path: 'settings',
-        loadChildren: './views/settings/settings.module#SettingsModule'
+        path: 'history-bills',
+        loadChildren: './views/history/history.module#HistoryBillsModule'
     },
     // does not match any route, redirect to 404.
     {   
-        path: '**', 
+        path: '404', 
         loadChildren: './components/notfound/404.module#NotfoundModule' 
+    },
+    {   
+        path: '**', 
+        redirectTo: '404'
     }
 ];
