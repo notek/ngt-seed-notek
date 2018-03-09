@@ -1,16 +1,13 @@
 <div class="today-bills">
     <div class="bills-box">
         <ul>
-            <li><i class="fa fa-home"></i>买烟：30元</li>
-            <li>买菜：5.5元</li>
-            <li>加油：300元</li>
-            <li>逛超市：168元</li>
+            <li *ngFor="let l of lists">{{l}}</li>
         </ul>
-        <p>总计：523.5元</p>
+        
         <p class="notek-btn-group notek-btn-group-rim">
             <button (click)="addContent()" class="notek-btn notek-btn-danger">添加</button>
             <button class="notek-btn notek-btn-primary">编辑</button>
-            <button class="notek-btn notek-btn-peril">删除</button>
+            <button (click)="deleteContent()" class="notek-btn notek-btn-peril">删除</button>
         </p>
         <!-- <p>
             <button class="notek-btn">常规默认按钮</button>

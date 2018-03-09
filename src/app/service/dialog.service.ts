@@ -7,6 +7,7 @@ import {
         ComponentFactory, 
         ComponentFactoryResolver 
 } from '@angular/core';  
+
 import { DialogConfig } from '../interface/dialog.if';
 import { DialogComponent } from '../components/dialog/dialog.component';
 
@@ -18,12 +19,11 @@ export class DialogService {
                 private apRef: ApplicationRef,
                 private resolver: ComponentFactoryResolver) {};
 
-    public createComponent(options?: DialogConfig, isInsert?: boolean) {
+    public create(options?: DialogConfig, isInsert?: boolean): void {
         const FACTORY = this.resolver.resolveComponentFactory(DialogComponent);
         this.componentRef = FACTORY.create(this.injector);
         const DIALOG_NODE = (this.componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
 
-        // this.componentRef.instance.type = text;
         for(let op in options) {
             this.componentRef.instance[op] = options[op];
         }

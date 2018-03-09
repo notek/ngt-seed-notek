@@ -3,22 +3,24 @@
     color: #fff;
     border: none;
     outline: none;
+    line-height: 1;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 400;
-    padding: 6px 14px;
+    padding: 8px 14px;
     border-radius: 2px;
     transition: all .2s;
     background-color: #828485;
     border: 1px solid #828485;
+    backface-visibility: hidden;
 }
 .notek-btn:not(.notek-btn-disabled):hover {
     color: rgba(0, 0, 0, .3)!important;
 }
-/*.notek-btn:not(.notek-btn-disabled):active {
-    opacity: .75;
-}*/
-/* 类型按钮 */
+.notek-btn:not(.notek-btn-disabled):active {
+    transform: scale(1.1);
+}
+/* 按钮 */
 .notek-btn.notek-btn-primary {
     border-color: #209cec;
     background-color: #209cec;
@@ -85,4 +87,20 @@
 }
 .notek-btn-group.notek-btn-group-rim button:not(:last-child) {
     border-right-color: rgba(255, 255, 255, .35);
+}
+
+/* 输入框 */
+.notek-ipt {
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    outline: none;
+    display: block;
+    font-size: 1rem;
+    line-height: 35px;
+    text-indent: 1rem;
+    border-radius: 2px;
+    transition: all .3s;
+    width: calc(100% - 2px);
+    border: 1px solid #cecece;
 }

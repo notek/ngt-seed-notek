@@ -24,8 +24,8 @@ export const routeAnimation: AnimationEntryMetadata =
 export const dialog: AnimationEntryMetadata = trigger('dialog', [
     transition(':enter', [
         animate('.3s ease-in-out', keyframes([
-            style({opacity: 0, transform: 'scale(.9)'}),
-            style({opacity: .2, transform: 'scale(1)'}),
+            style({opacity: 0, transform: 'scale(.5)'}),
+            style({opacity: .2, transform: 'scale(.8)'}),
             style({opacity: .5, transform: 'scale(1.1)'}),
             style({opacity: 1, transform: 'scale(1)'})
         ]))
