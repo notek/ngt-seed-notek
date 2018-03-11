@@ -1,13 +1,15 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { dialog } from '../../app.animations';
+import { dialogAnim1, dialogAnim2, dialogAnim3 } from '../../app.animations';
+
+let errorTimer = null;
 
 @Component({
     selector: 'notek-dialog',
     templateUrl: './dialog.component.html',
     styleUrls: ['./dialog.style.css'],
-    animations: [dialog]
+    animations: [ dialogAnim1, dialogAnim2, dialogAnim3 ]
 })
 export class DialogComponent {
     @Input() time: number;
@@ -25,6 +27,12 @@ export class DialogComponent {
     @Input() cancelBtnText: string = '取消';
     @Input() type: number = 1;
     @Input() icon: number;
+    @Input() bgClickHide: boolean = false;
+    @Input() isBg: boolean = true;
+    @Input() animType: number = 1;
+    @Input() place: string = '';
+    @Input() preVal: string = '';
+    @Input() isTextarea: boolean = false;
 
     // type为3时可用.
     private enterCon: string;
@@ -33,6 +41,7 @@ export class DialogComponent {
     // icon存在时可用.
     private iconClass: any;
 
+    private anim: string;
     private timer: any = null;
     private animState: boolean = true;
 
@@ -50,7 +59,7 @@ export class DialogComponent {
             if(this.contentHeight || this.contentMaxHeight || this.width) throw new TypeError('当type为2时不能存在「contentHeight」、「contentMaxHeight」或「width」参数');
         }
         if(this.type === 1) {
-            if(this.icon) throw new TypeError('当type为1时不能存在「icon」参数');
+            if(this.icon || this.time) throw new TypeError('当type为1时不能存在「icon」或「time」参数');
         }
         if(this.isBtns === false) {
             if(this.definiteBtnText !== '确定' || this.cancelBtnText !== '取消' || this.definiteFn || this.cancelFn) throw new TypeError('当isBtns为false时不能存在「definiteBtnText」、「cancelBtnText」、「definiteFn」或「cancelFn」参数');
@@ -86,6 +95,10 @@ export class DialogComponent {
                     break;
             }
         }
+
+        if(this.preVal) {
+            this.enterCon = this.preVal;
+        }
     };
 
     ngAfterViewInit(): void {
@@ -102,11 +115,12 @@ export class DialogComponent {
             this.animState = false;
             this.definiteFn && this.definiteFn();
         }else {
+            this.input.nativeElement.focus();
             if(!this.enterCon || /^\s*$/g.test(this.enterCon)) {
                 this.isErrorIpt = true;
-                setTimeout(() => {
+                clearTimeout(errorTimer);
+                errorTimer = setTimeout(() => {
                     this.isErrorIpt = false;
-                    this.input.nativeElement.focus();
                 }, 3000);
                 return;
             };
@@ -125,5 +139,9 @@ export class DialogComponent {
                 }
             }, 100);            
         }
+    };
+
+    stopPropagation(evt: any): void {
+        evt.stopPropagation();
     };
 }

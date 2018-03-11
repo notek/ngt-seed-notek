@@ -1,14 +1,52 @@
 <div class="today-bills">
-    <div class="bills-box">
-        <ul>
-            <li *ngFor="let l of lists">{{l}}</li>
-        </ul>
-        
-        <p class="notek-btn-group notek-btn-group-rim">
-            <button (click)="addContent()" class="notek-btn notek-btn-danger">添加</button>
-            <button class="notek-btn notek-btn-primary">编辑</button>
-            <button (click)="deleteContent()" class="notek-btn notek-btn-peril">删除</button>
-        </p>
+    <div class="bills-box notek-space10 notek-clearfix">
+        <div class="notek-md-3">
+            <p class="notek-btn-group notek-btn-group-vertical notek-btn-group-radius">
+                <button class="notek-btn notek-btn-primary" (click)="addNewNotes()">
+                    <i class="fa fa-plus-circle"></i>
+                    添加记录
+                </button>
+                <button class="notek-btn notek-btn-primary" (click)="seeNotes()">
+                    <i class="fa fa-eye"></i>
+                    查看记录
+                </button>
+            </p>
+        </div>
+        <div class="notek-md-12">
+            <table class="notek-table">
+                <colgroup>
+                    <col width="80">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>申请日期</th>
+                        <th>会诊类型</th>
+                        <th>患者姓名</th>
+                        <th>科室</th>
+                        <th>会诊机构</th>
+                        <th>会诊医师</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">发起会诊</a></td>
+                        <td>2018-03-12</td>
+                        <td>紧急会诊</td>
+                        <td>李星辰</td>
+                        <td>骨科</td>
+                        <td>上级医院</td>
+                        <td>会诊医师</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <!-- <p>
             <button class="notek-btn">常规默认按钮</button>
             <button class="notek-btn notek-btn-primary">常规主要按钮</button>
@@ -32,19 +70,19 @@
             <button class="notek-btn notek-btn-disabled notek-btn-slim">纤细禁用按钮</button>
         </p>
         <p class="notek-btn-group">
-            <button class="notek-btn notek-btn-primary">编辑</button>
-            <button class="notek-btn notek-btn-peril">删除</button>
-            <button class="notek-btn notek-btn-success">添加</button>
+            <button class="notek-btn notek-btn-primary" (click)="anim1Dialog()">默认动画</button>
+            <button class="notek-btn notek-btn-peril" (click)="anim2Dialog()">由上到下</button>
+            <button class="notek-btn notek-btn-success" (click)="anim3Dialog()">弹跳</button>
         </p>
         <p class="notek-btn-group notek-btn-group-rim">
-            <button class="notek-btn notek-btn-primary">编辑</button>
-            <button class="notek-btn notek-btn-primary">删除</button>
-            <button class="notek-btn notek-btn-primary">添加</button>
+            <button class="notek-btn notek-btn-primary" (click)="customContentDialog()">自定义内容框</button>
+            <button class="notek-btn notek-btn-primary" (click)="alertTimeendDialog()">提示框</button>
+            <button class="notek-btn notek-btn-primary" (click)="preValDialog()">带预置值的输入框</button>
         </p>
         <p class="notek-btn-group notek-btn-group-vertical">
-            <button class="notek-btn notek-btn-primary">垂直按钮演示</button>
-            <button class="notek-btn notek-btn-primary">垂直按钮演示</button>
-            <button class="notek-btn notek-btn-primary">垂直按钮演示</button>
+            <button class="notek-btn notek-btn-primary" (click)="confirmDialog()">确认框</button>
+            <button class="notek-btn notek-btn-primary" (click)="alertDialog()">提示框</button>
+            <button class="notek-btn notek-btn-primary" (click)="promptDialog()">输入框</button>
         </p> -->
     </div>
 </div>

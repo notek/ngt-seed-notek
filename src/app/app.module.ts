@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ROUTES } from './app.routes';
 import { DialogModule } from './components/dialog/dialog.module';
 
-// import { DialogService } from './service/dialog.service';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 
