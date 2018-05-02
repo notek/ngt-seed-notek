@@ -1,5 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Component, Input, ViewChild } from '@angular/core';
 
 import { dialogAnim1, dialogAnim2, dialogAnim3 } from '../../app.animations';
 
@@ -34,6 +36,8 @@ export class DialogComponent {
     @Input() preVal: string = '';
     @Input() isTextarea: boolean = false;
 
+    private subject = new Subject<any>();
+
     // type为3时可用.
     private enterCon: string;
     private isErrorIpt: boolean = false;
@@ -49,13 +53,13 @@ export class DialogComponent {
 
     constructor(private sanitizer: DomSanitizer) {};
 
-    ngOnInit(): void {
+    private ngOnInit(): void {
         // error handling.
         if(this.type === 3) {
             if(this.icon || this.contentHeight || this.contentMaxHeight || this.width || this.time || this.timeFn || this.content !== '提示内容') throw new TypeError('当type为3时不能存在「icon」、「contentHeight」、「contentMaxHeight」、「width」、「content」、「time」或「timeFn」参数');
         }
         if(this.type === 2) {
-            if(/<[^>]+>/g.test(this.content)) throw new TypeError('当type为2时「content」参数不能包含html标签');
+            if(/<[^>]+>/g.test(this.content)) throw new TypeError('「content」不能包含html标签');
             if(this.contentHeight || this.contentMaxHeight || this.width) throw new TypeError('当type为2时不能存在「contentHeight」、「contentMaxHeight」或「width」参数');
         }
         if(this.type === 1) {
@@ -101,16 +105,16 @@ export class DialogComponent {
         }
     };
 
-    ngAfterViewInit(): void {
+    private ngAfterViewInit(): void {
         this.type === 3 && this.input.nativeElement.focus();
     };
 
-    close(): void {
+    private close(): void {
         this.animState = false;
         this.cancelFn && this.cancelFn();
     };
 
-    definite(): void {
+    private definite(): void {
         if(this.type !== 3) {
             this.animState = false;
             this.definiteFn && this.definiteFn();
@@ -129,7 +133,7 @@ export class DialogComponent {
         }
     };
 
-    animEnd(evt: any): void {
+    private animEnd(evt: any): void {
         if(evt.toState === 'void' && !this.animState) {
             let dialog = document.querySelectorAll('notek-dialog');
             
@@ -141,7 +145,7 @@ export class DialogComponent {
         }
     };
 
-    stopPropagation(evt: any): void {
+    private stopPropagation(evt: any): void {
         evt.stopPropagation();
     };
 }

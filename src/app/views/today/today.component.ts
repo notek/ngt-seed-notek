@@ -12,87 +12,43 @@ export class TodayBillsComponent {
     constructor(private router: Router,
                 private dialog: DialogService) {};
 
-    private recording: string;
-
-//     confirmDialog(): void {
-//         this.dialog.create({
-//             animType: 3,
-//             title: '删除确认',
-//             content: '确定要删除这条记录吗？',
-//             definiteFn: () => {
-//                 console.log('确认');
-//             },
-//             cancelFn: () => {
-//                 console.log('取消');
-//             }
-//         });
-//     };
-
-//     alertDialog(): void {
-//         this.dialog.create({
-//             icon: 2,
-//             type: 2,
-//             content: '对不起，操作失败！'
-//         });
-//     };
-
-//     alertTimeendDialog(): void {
-//         this.dialog.create({
-//             icon: 1,
-//             type: 2,
-//             time: 3000,
-//             animType: 2,
-//             title: '3秒后消失',
-//             content: '恭喜，操作成功！'
-//         });
-//     };
+    private datas: Array<any> = [
+        {
+            consType: 1,
+            patientName: '李星辰',
+            departName: '内科',
+            consMec: '下级医院',
+            consDoctor: '周董可',
+            applyDate: '2018-3-12'
+        },
+        {
+            consType: 0,
+            patientName: '不认识',
+            departName: '骨科',
+            consMec: '成都军区总医院',
+            consDoctor: '华佗',
+            applyDate: '2018-3-16'
+        }
+    ];
 
     private addNewNotes(): void {
-        this.dialog.create({
-            type: 3,
-            animType: 2,
-            title: '添加记录',
-            place: '请输入新记录',
+        this.dialog.prompt('输入新纪录', {
             definiteFn: val => {
-                this.recording = val;
+                if(val) {
+                    this.dialog.alert('操作提示', {
+                        icon: 1,
+                        time: 2000,
+                        content: `输入成功，您输入了${val}`
+                    });
+                }
             }
         });
     };
 
     private seeNotes(): void {
         this.dialog.create({
-            width: '65%',
             title: '内容预览',
-            content: `
-            <div class="notek-md-12">
-                <table class="notek-table highlight">
-                    <colgroup>
-                        <col width="100">
-                        <col width="100">
-                        <col width="100">
-                        <col width="100">
-                        <col width="100">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>苹果</th>
-                            <th>鸭梨</th>
-                            <th>香蕉</th>
-                            <th>草莓</th>
-                            <th>火龙果</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>6.00元/斤</td>
-                            <td>9.00元/斤</td>
-                            <td>3.98元/斤</td>
-                            <td>18.00元/斤</td>
-                            <td>12.00元/个</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>`,
+            content: '呵呵呵呵呵，你想看什么？'
         });
     };
 

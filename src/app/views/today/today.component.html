@@ -35,14 +35,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a href="#">发起会诊</a></td>
-                        <td>2018-03-12</td>
-                        <td>紧急会诊</td>
-                        <td>李星辰</td>
-                        <td>骨科</td>
-                        <td>上级医院</td>
-                        <td>会诊医师</td>
+                    <tr *ngFor="let d of datas">
+                        <td><a href="#">加入</a></td>
+                        <td>{{d.applyDate}}</td>
+                        <td>{{d.consType === 1 ? '紧急会诊' : '普通会诊'}}</td>
+                        <td>{{d.patientName}}</td>
+                        <td>{{d.departName}}</td>
+                        <td>{{d.consMec}}</td>
+                        <td>{{d.consDoctor}}</td>
                     </tr>
                 </tbody>
             </table>

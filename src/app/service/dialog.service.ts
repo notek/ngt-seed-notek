@@ -8,8 +8,8 @@ import {
         ComponentFactoryResolver 
 } from '@angular/core';  
 
-import { DialogConfig } from '../interface/dialog.if';
 import { DialogComponent } from '../components/dialog/dialog.component';
+import { DialogConfig, DialogAlertConfig, DialogPromptConfig } from '../interface/dialog.if';
 
 @Injectable()
 export class DialogService {
@@ -19,7 +19,7 @@ export class DialogService {
                 private apRef: ApplicationRef,
                 private resolver: ComponentFactoryResolver) {};
 
-    public create(options?: DialogConfig, isInsert?: boolean): void {
+    private createComponent(options: any, isInsert: boolean): void {
         const FACTORY = this.resolver.resolveComponentFactory(DialogComponent);
         this.componentRef = FACTORY.create(this.injector);
         const DIALOG_NODE = (this.componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
@@ -39,5 +39,29 @@ export class DialogService {
 
         // add angular dirty check.
         this.apRef.attachView(this.componentRef.hostView);
+    };
+
+    public create(options?: DialogConfig, isInsert?: boolean): void {
+        this.createComponent(options, isInsert);
+    };
+
+    public alert(title: string, options?: DialogAlertConfig, isInsert?: boolean): void {
+        const defaultOptions = {
+            type: 2,
+            title: title
+        };
+        const os = Object.assign({}, options, defaultOptions);
+
+        this.createComponent(os, isInsert);
+    };
+
+    public prompt(title: string, options?: DialogPromptConfig,  isInsert?: boolean): void {
+        const defaultOptions = {
+            type: 3,
+            title: title
+        };
+        const os = Object.assign({}, options, defaultOptions);
+
+        this.createComponent(os, isInsert);
     };
 };
